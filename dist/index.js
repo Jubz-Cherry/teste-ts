@@ -1,13 +1,9 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const app = (0, express_1.default)();
-app.get('/', (req, res) => {
-    return res.send('Hello World!');
-});
+import express from 'express';
+import routes from './routes.js';
+import cors from 'cors';
+const app = express();
+app.use(cors());
+app.use(routes);
 app.listen(1515, () => {
     console.log('Server is running');
 });
